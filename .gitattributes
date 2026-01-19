@@ -1,0 +1,9 @@
+# Ignore generated code in language statistics
+android/** linguist-generated=true
+ios/** linguist-generated=true
+windows/** linguist-generated=true
+linux/** linguist-generated=true
+macos/** linguist-generated=true
+
+# Mark Dart as the main language
+*.dart linguist-detectable=true
