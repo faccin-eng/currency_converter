@@ -10,7 +10,13 @@ class CurrencyScreen extends StatefulWidget{
 
 class _CurrencyScreen extends State<CurrencyScreen>{
   double result = 0;
+
   final TextEditingController textEditingController = TextEditingController();
+
+  void convert(){
+    result = double.parse(textEditingController.text) * 5.23;
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context){
@@ -39,7 +45,7 @@ class _CurrencyScreen extends State<CurrencyScreen>{
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
            children : [
-              Text('${result}',
+              Text('R\$ ${result.toStringAsFixed(2)}',
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -56,7 +62,7 @@ class _CurrencyScreen extends State<CurrencyScreen>{
                   ),
                   decoration: InputDecoration(
                     hoverColor : Colors.white,
-                    hintText: 'Por favor insira a currência em BRL',
+                    hintText: 'Por favor insira a currência em USD',
                     hintStyle: TextStyle(
                       color: const Color.fromARGB(255, 0, 0, 0),
                     ),
@@ -74,12 +80,7 @@ class _CurrencyScreen extends State<CurrencyScreen>{
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 45),
                 child: ElevatedButton(
-                  onPressed: (){
-                    setState(() {
-                    result = double.parse(textEditingController.text) * 5.23;
-                    });
-                      
-                  },
+                  onPressed: convert,
                   style: ButtonStyle(  
 /*ao invés de style podemos usar simplesmente TextButton.styleFrom, onde a conversão para widget state é interna e auto
 esse método é eficaz para comportamentos complexos, como mudança de estado que altera os botões
