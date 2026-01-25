@@ -23,6 +23,12 @@ class _CurrencyScreen extends State<CurrencyScreen>{
   }
 
   @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context){
 // you can put functions inside your build function, but that is recommended only for builder functions (front end related)
 // on final border we create a function to avoid duplicate code, since the same code was being used twice in the builder
