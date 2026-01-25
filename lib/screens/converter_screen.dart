@@ -10,12 +10,16 @@ class CurrencyScreen extends StatefulWidget{
 
 class _CurrencyScreen extends State<CurrencyScreen>{
   double result = 0;
+  String? errorText = 'Valor inválido';
 
   final TextEditingController textEditingController = TextEditingController();
 
   void convert(){
-    result = double.parse(textEditingController.text) * 5.23;
+    try{ result = double.parse(textEditingController.text) * 5.23;
     setState(() {});
+    } catch (e) {
+      result=987654321.12;
+    }
   }
 
   @override
@@ -45,7 +49,7 @@ class _CurrencyScreen extends State<CurrencyScreen>{
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
            children : [
-              Text('R\$ ${result.toStringAsFixed(2)}',
+              Text('R\$ ${result!=987654321.12 ? result.toStringAsFixed(2) : errorText}',
                 style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,

@@ -1,8 +1,10 @@
-import 'package:currency_converter/screens/converter_screen.dart'; 
+import 'package:currency_converter/screens/converter_screen.dart';
+import 'package:currency_converter/screens/currency_cupertino.dart'; 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyCupertinoApp());
 }
 /* types of widgets:
 
@@ -20,9 +22,21 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-   return const MaterialApp(
-     home: CurrencyScreen()
+   return const CupertinoApp(
+     home: CupertinoApi(),
    );
   }
 
+}
+
+
+class MyCupertinoApp extends StatelessWidget {
+  const MyCupertinoApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const CupertinoApp(
+      home: CupertinoApi(),
+    );
+  }
 }
